@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/markdown.min.js"></script>
+	<style>
+		body {padding-top: 50px; background: #eee;}
+		.media-left img {width: 350px; height: 180px;}
+		.main {margin-top: 20px;}
+		.content {
+			background: #fff;
+		}
+		.content .media {
+			margin-top: 15px;
+			border-bottom: 1px dotted #ddd;
+			padding-bottom: 15px;
+		}
+		.sidebar li {
+			line-height: 30px;
+		}
+		footer {
+			background: #222;
+			color: #ccc;
+			margin-top: 15px;
+			padding: 20px 0 10px;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-target="#menu" data-toggle="collapse">
+					<span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+				</button>
+				<a href="" class="navbar-brand">牛的博客</a>
+			</div>
+			<div id="menu" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="">首页</a></li>
+					<li><a href="">HTML</a></li>
+					<li><a href="">css</a></li>
+					<li><a href="">JavaScript</a></li>
+				</ul>
+				
+				<form action="" class="navbar-right navbar-form">
+					<div class="input-group">
+						<input type="text" class="form-control">
+						<div class="input-group-btn">
+							<button class="btn btn-primary">搜索</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			
+		</div>
+	</nav>
+
+	<div>
+		<img src="images/baner.jpg" alt="" class="img-responsive">
+	</div>
+
+	<div class="container">
+		<div class="row main">
+			<div class="col-md-9 content">
+				<ul class="breadcrumb" style="margin-top: 15px;">
+					<li><a href="">首页</a></li>
+					<li><a href="">CSS</a></li>
+					<li><a href="">H5新特性</a></li>
+				</ul>
+				
+				<div class="page-header">
+					<h1><%= posts.subject %></h1>
+					<p>Killer 发表于(<%= posts.time.toLocaleString() %>) 本文标签： 浏览量：<%= posts.count %>次 
+					<a href=""><i class="glyphicon glyphicon-thumbs-up"></i> 喜欢</a> 
+					<a href=""><i class="glyphicon glyphicon-heart"></i> 收藏</a>
+					</p>
+				</div>
+
+				<div id="content"><%= posts.content %></div>
+				<script>
+					$("#content").html(markdown.toHTML($("#content").html()));
+				</script>
+
+				<hr>
+
+				<h3>相关文章</h3>
+				<div class="row">
+					<div class="col-md-6">
+						<ul class="list-unstyled">
+							<li><i class="glyphicon glyphicon-link"></i> <a href="">响应式Web设计</a></li>
+							<li><i class="glyphicon glyphicon-link"></i> <a href="">响应式Web设计</a></li>
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<ul class="list-unstyled">
+							<li><i class="glyphicon glyphicon-link"></i> <a href="">响应式Web设计</a></li>
+							<li><i class="glyphicon glyphicon-link"></i> <a href="">响应式Web设计</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 sidebar">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<p>热门文章</p>
+					</div>
+					<div class="panel-body">
+						<ul class="list-unstyled">
+							<li> <label class="label label-danger">1</label> <a href="">如何为网站和应用创建设计...</a></li>
+							<li> <label class="label label-danger">2</label> <a href="">如何为网站和应用创建设计...</a></li>
+							<li> <label class="label label-danger">3</label> <a href="">如何为网站和应用创建设计...</a></li>
+							<li> <label class="label label-default">4</label> <a href="">如何为网站和应用创建设计...</a></li>
+							<li> <label class="label label-default">5</label> <a href="">如何为网站和应用创建设计...</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="text-center">
+		<p>版权所有，保留一切权利！ 转载内容版权归作者及来源网站所有，原创内容转载请注明来源。</p>
+		<p>Copyright © 2013-2014 andy, All Rights Reserved.</p>
+	</footer>
+</body>
+</html>
